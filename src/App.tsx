@@ -66,8 +66,9 @@ function App() {
         '/14(1).png',
       ],
       tech: ['Angular', 'Node.js', 'MongoDB', 'Express.js'],
-      demoUrl: 'https://github.com/ArwaEmamm/JobBoardLaravel',
-      codeUrl: 'https://github.com/ArwaEmamm/job-board'
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/schoolsystem', label: 'Full Code' }
+      ]
     },
     {
       title: 'Medical System',
@@ -80,8 +81,10 @@ function App() {
         '/12.JPG',
       ],
       tech: ['React', 'Django', 'PostgreSQL', 'REST APIs'],
-      demoUrl: 'https://github.com/ArwaEmamm/medical-react-django-front',
-      codeUrl: 'https://github.com/ArwaEmamm/medical-react-django-back'
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/medical-react-django-front', label: 'Frontend' },
+        { url: 'https://github.com/ArwaEmamm/medical-react-django-back', label: 'Backend' }
+      ]
     },
     {
       title: 'Job Board Platform',
@@ -93,8 +96,10 @@ function App() {
         '/6(1).png',
       ],
       tech: ['Vue.js', 'Laravel', 'MySQL', 'Bootstrap'],
-      demoUrl: 'https://github.com/ArwaEmamm/job-board',
-      codeUrl: 'https://github.com/ArwaEmamm/JobBoardLaravel'
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/job-board', label: 'Vue Frontend' },
+        { url: 'https://github.com/ArwaEmamm/JobBoardLaravel', label: 'Laravel Backend' }
+      ]
     },
     {
       title: 'CafeteriaPHP_Project',
@@ -107,7 +112,9 @@ function App() {
         '/6.jpg',
       ],
       tech: ['PHP', 'MySQL', 'HTML', 'CSS'],
-      codeUrl: 'https://github.com/ArwaEmamm/CafeteriaPHP_Project'
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/CafeteriaPHP_Project', label: 'Full Code' }
+      ]
     },
     {
       title: 'ITIans Community & Job Platform',
@@ -119,8 +126,10 @@ function App() {
         '/itiiii.jpg',
       ],
       tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
-      demoUrl: 'https://github.com/ArwaEmamm/Graduation-Project-From-ITI-FrontEnd',
-      codeUrl: 'https://github.com/ArwaEmamm/Graduation-Project-From-ITI-BackEnd'
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/Graduation-Project-From-ITI-FrontEnd', label: 'Frontend' },
+        { url: 'https://github.com/ArwaEmamm/Graduation-Project-From-ITI-BackEnd', label: 'Backend' }
+      ]
     },
     {
       title: 'vedio-games',
@@ -132,7 +141,9 @@ function App() {
         '/3334.JPG',
       ],
       tech: ['Vue.js', 'Tailwind CSS'],
-      codeUrl: 'https://github.com/ArwaEmamm/vedio-games'
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/vedio-games', label: 'Full Code' }
+      ]
     }
   ];
 
@@ -378,39 +389,21 @@ function App() {
                     ))}
                   </div>
                   
-                  {/* أزرار code موحدة لكل مشروع فيه codeUrl */}
-                  {project.codeUrl ? (
-                    <div className="flex space-x-4">
-                      <a
-                        href={project.codeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200 border border-gray-300 dark:border-gray-600 rounded px-3 py-1"
-                      >
-                        <Github size={16} />
-                        <span>code</span>
-                      </a>
-                    </div>
-                  ) : (
-                    <div className="flex space-x-4">
-                      {project.demoUrl && (
+                  {/* أزرار code متعددة لكل مشروع */}
+                  {project.codeLinks && project.codeLinks.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {project.codeLinks.map((link, idx) => (
                         <a
-                          href={project.demoUrl}
-                          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors duration-200"
-                        >
-                          <ExternalLink size={16} />
-                          <span>Live Demo</span>
-                        </a>
-                      )}
-                      {project.codeUrl && (
-                        <a
-                          href={project.codeUrl}
-                          className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200"
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200 border border-gray-300 dark:border-gray-600 rounded px-3 py-1"
                         >
                           <Github size={16} />
-                          <span>Code</span>
+                          <span>{link.label}</span>
                         </a>
-                      )}
+                      ))}
                     </div>
                   )}
                 </div>
