@@ -145,6 +145,26 @@ function App() {
         { url: 'https://github.com/ArwaEmamm/vedio-games', label: 'Full Code' }
       ]
     }
+    
+    ,
+    {
+      title: 'Workflow System',
+      description: `A Workflow Management System designed to automate and organize approval processes within companies. The system supports three main roles: Employee, Manager, and HR Manager (Admin). The HR Manager defines custom workflows for each request type, such as Leave Request or Salary Raise, with single or multi-step approval levels. Employees can submit requests and track their status in real time. The system sends instant notifications to all involved users upon submission, approval, or rejection, ensuring smooth and efficient workflow management.`,
+      images: [
+        '/landingpage.JPG',
+        '/employerworkflow.JPG',
+        '/hrmangerdashboard.JPG',
+        '/requests.JPG',
+         '/workflowdetails.JPG'
+
+      ],
+      tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Tailwind CSS'],
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/Business-Workflow-Automation-Platform', label: 'Frontend' },
+        { url: 'https://github.com/ArwaEmamm/Business-Workflow-Automation-Platform-Back', label: 'Backend' }
+      ],
+      demoUrl: 'https://drive.google.com/file/d/1yvRAS3odhQb6M2v7RWwZKTQTbK6rOv8f/view?usp=sharing'
+    }
   ];
 
   return (
