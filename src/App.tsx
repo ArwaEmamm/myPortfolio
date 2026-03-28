@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -179,7 +179,7 @@ function App() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+              {['home', 'about', 'experience', 'skills', 'projects', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -218,7 +218,7 @@ function App() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className={`md:hidden py-4 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-              {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+              {['home', 'about', 'experience', 'skills', 'projects', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -238,14 +238,6 @@ function App() {
       <section id="home" className="pt-20 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center">
-            <div className="mb-8">
-              <img
-                src="/nxEDwPGJxtqtCZrPweynwxDRjQl3uuardbb12guE.jpg"
-                alt="Profile"
-                className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-blue-500 shadow-xl"
-              />
-            </div>
-            
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-500 bg-clip-text text-transparent">
                 Arwa Mostafa Emam
@@ -328,8 +320,44 @@ function App() {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Experience & Education</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-blue-600 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <h3 className="text-2xl font-bold mb-2">Information Technology Institute (ITI)</h3>
+              <p className="text-xl text-blue-600 dark:text-blue-400 font-semibold mb-2">Open Source Full-Stack Track Graduate</p>
+              <p className="text-gray-600 dark:text-gray-300">Intensive 9-month program focusing on open source full-stack development, delivering real-world web projects using emerging frameworks and modern architectures.</p>
+            </div>
+
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-purple-600 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <h3 className="text-2xl font-bold mb-2">Laravel Full Stack Developer</h3>
+              <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold mb-2">Full-Time</p>
+              <p className="text-gray-600 dark:text-gray-300">Building and maintaining backend systems and platforms using Laravel Modular Architecture. Enhancing production systems, implementing robust deployments, and optimizing databases for performance.</p>
+            </div>
+
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-emerald-500 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <h3 className="text-2xl font-bold mb-2">Laravel Backend Developer</h3>
+              <p className="text-xl text-emerald-500 dark:text-emerald-400 font-semibold mb-2">Part-Time</p>
+              <p className="text-gray-600 dark:text-gray-300">Creating scalable RESTful APIs, modern backend architectures, and secure authentication systems with role-based access control using the latest versions of the Laravel framework.</p>
+            </div>
+
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-pink-500 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <h3 className="text-2xl font-bold mb-2">Freelance Full Stack Developer</h3>
+              <p className="text-xl text-pink-500 dark:text-pink-400 font-semibold mb-2">Freelance</p>
+              <p className="text-gray-600 dark:text-gray-300">Delivering end-to-end full stack solutions globally spanning React, Angular, Node.js, Express, and Laravel. Specialized in workflow automation systems, custom CRM tools, and scalable applications.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Skills Section */}
-      <section id="skills" className="py-20">
+      <section id="skills" className={`py-20 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Skills & Technologies</h2>
@@ -386,13 +414,7 @@ function App() {
                 {/* إذا كان المشروع هو Job Board Platform، اعرض كاروسيل الصور */}
                 {(project.images && Array.isArray(project.images)) ? (
                   <Carousel images={project.images} />
-                ) : (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
+                ) : null}
                 
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{project.title}</h3>
