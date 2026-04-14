@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, Moon, Sun, ChevronDown, BookOpen, Building, Smartphone, ClipboardCheck } from 'lucide-react';
 import Carousel from './Carousel';
 
 function App() {
@@ -48,13 +48,47 @@ function App() {
     { name: 'React', level: 85 },
     { name: 'Node.js', level: 88 },
     { name: 'TypeScript', level: 82 },
+    { name: 'Laravel', level: 85 },
     { name: 'Django', level: 80 },
-    { name: 'MongoDB', level: 75 },
-    { name: 'Laravel', level: 78 },
+    { name: 'MongoDB', level: 80 },
+    { name: 'MySQL / PostgreSQL', level: 80 },
     { name: 'Vue.js', level: 75 },
+    { name: 'Express.js', level: 85 }
   ];
 
   const projects = [
+    {
+      title: 'Online Courses Platform (Udemy-like System)',
+      description: 'Developed backend modules for a large-scale learning platform with secure subscriptions, structured courses, dynamic quizzes, and content protection (Laravel/Backend).',
+      images: [],
+      icon: <BookOpen size={64} className="text-blue-500" />,
+      tech: ['Laravel', 'MySQL', 'REST APIs', 'Security', 'Payment Integration'],
+      codeLinks: []
+    },
+    {
+      title: 'Real Estate Rental Platform (Multi-Vendor System)',
+      description: 'Backend for multi-vendor rental system supporting Admins, Owners, and Tenants with property workflows, rental requests, and maintenance modules.',
+      images: [],
+      icon: <Building size={64} className="text-purple-500" />,
+      tech: ['Laravel', 'MySQL', 'cPanel', 'Architecture'],
+      codeLinks: []
+    },
+    {
+      title: 'Short Video Social Platform (TikTok-like)',
+      description: 'Built backend system supporting short-video content publishing, user engagement mechanisms, media handling, and authentication.',
+      images: [],
+      icon: <Smartphone size={64} className="text-emerald-500" />,
+      tech: ['Node.js', 'Express.js', 'Media Handling', 'MongoDB', 'REST APIs'],
+      codeLinks: []
+    },
+    {
+      title: 'Attendance & Grade Management System',
+      description: 'QRCode-based university attendance tracking paired with a comprehensive grade management module (ITI Graduation Project - Grade: Excellent).',
+      images: [],
+      icon: <ClipboardCheck size={64} className="text-pink-500" />,
+      tech: ['Node.js', 'React', 'MongoDB'],
+      codeLinks: []
+    },
     {
       title: 'Hadanat Al-Furqan Kindergarten System',
       description: 'A comprehensive kindergarten management system with Angular frontend and Node.js backend. Features include student registration, attendance tracking, and scheduling system.',
@@ -168,9 +202,9 @@ function App() {
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-slate-900 text-white' : 'bg-white text-slate-900'}`}>
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isDarkMode ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-sm border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isDarkMode ? 'bg-slate-900/95' : 'bg-white/95'} backdrop-blur-sm border-b ${isDarkMode ? 'border-slate-700' : 'border-slate-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -192,7 +226,7 @@ function App() {
               ))}
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors duration-200 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}`}
+                className={`p-2 rounded-lg transition-colors duration-200 ${isDarkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-slate-100 hover:bg-slate-200'}`}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
@@ -202,7 +236,7 @@ function App() {
             <div className="md:hidden flex items-center space-x-2">
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors duration-200 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}`}
+                className={`p-2 rounded-lg transition-colors duration-200 ${isDarkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-slate-100 hover:bg-slate-200'}`}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
@@ -217,7 +251,7 @@ function App() {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className={`md:hidden py-4 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+            <div className={`md:hidden py-4 border-t ${isDarkMode ? 'border-slate-700' : 'border-slate-200'}`}>
               {['home', 'about', 'experience', 'skills', 'projects', 'contact'].map((section) => (
                 <button
                   key={section}
@@ -244,12 +278,12 @@ function App() {
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300">
+            <p className="text-xl md:text-2xl mb-8 text-slate-600 dark:text-slate-300">
               Full Stack Developer
             </p>
             
-            <p className="text-lg mb-12 max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-              Motivated and detail-oriented Full-Stack Developer with hands-on experience in frontend and backend development. Passionate about clean, maintainable code and continuous learning.
+            <p className="text-lg mb-12 max-w-2xl mx-auto text-slate-600 dark:text-slate-400">
+              Full-Stack Developer with strong experience in building scalable and secure web applications using React, Angular, Node.js, Express, Laravel, and Django. Experienced in developing modular systems, RESTful APIs, multi-role platforms, and performance optimized applications. Skilled in building end-to-end solutions including CRM systems, workflow platforms, content platforms, and large-scale production systems.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -263,8 +297,8 @@ function App() {
                 onClick={() => scrollToSection('contact')}
                 className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 border-2 ${
                   isDarkMode 
-                    ? 'border-gray-600 text-gray-300 hover:border-blue-500 hover:text-blue-400' 
-                    : 'border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600'
+                    ? 'border-slate-600 text-slate-300 hover:border-blue-500 hover:text-blue-400' 
+                    : 'border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600'
                 }`}
               >
                 Get In Touch
@@ -272,14 +306,14 @@ function App() {
             </div>
 
             <div className="animate-bounce">
-              <ChevronDown size={32} className="mx-auto text-gray-400" />
+              <ChevronDown size={32} className="mx-auto text-slate-400" />
             </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      <section id="about" className={`py-20 ${isDarkMode ? 'bg-slate-800' : 'bg-slate-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
@@ -289,13 +323,11 @@ function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="md:col-span-2">
               <h3 className="text-2xl font-bold mb-6">Passionate Developer & Designer</h3>
-              <p className="text-lg mb-6 text-gray-600 dark:text-gray-300">
-                I'm a motivated Full-Stack Developer with hands-on experience in both frontend and backend development. 
-                Skilled in Angular, React, Node.js, Express.js, Django, and cloud solutions. Currently graduated from 
-                ITI Open Source Full-Stack program and hold a Bachelor's degree in Computers and Information from Assiut University.
+              <p className="text-lg mb-6 text-slate-600 dark:text-slate-300">
+                Full-Stack Developer with strong experience in building scalable and secure web applications using React, Angular, Node.js, Express, Laravel, and Django. Experienced in developing modular systems, RESTful APIs, multi-role platforms, and performance optimized applications. Skilled in building end-to-end solutions including CRM systems, workflow platforms, content platforms, and large-scale production systems.
               </p>
               
-              <p className="text-lg mb-8 text-gray-600 dark:text-gray-300">
+              <p className="text-lg mb-8 text-slate-600 dark:text-slate-300">
                 I'm passionate about creating efficient, scalable solutions and have experience working with various 
                 technologies including Angular, React, Vue.js, Node.js, Django, and Laravel. I believe in continuous 
                 learning and staying up-to-date with the latest technologies and best practices.
@@ -321,7 +353,7 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20">
+            <section id="experience" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Experience & Education</h2>
@@ -329,35 +361,59 @@ function App() {
           </div>
           
           <div className="max-w-4xl mx-auto space-y-8">
-            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-blue-600 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
-              <h3 className="text-2xl font-bold mb-2">Information Technology Institute (ITI)</h3>
-              <p className="text-xl text-blue-600 dark:text-blue-400 font-semibold mb-2">Open Source Full-Stack Track Graduate</p>
-              <p className="text-gray-600 dark:text-gray-300">Intensive 9-month program focusing on open source full-stack development, delivering real-world web projects using emerging frameworks and modern architectures.</p>
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-blue-600 ${isDarkMode ? 'bg-slate-800' : 'bg-slate-50'}`}>
+              <div className="flex justify-between items-start mb-2">
+                 <h3 className="text-2xl font-bold">Backend Developer</h3>
+                 <span className="text-sm font-semibold px-3 py-1 bg-blue-100 text-blue-800 rounded-full dark:bg-blue-900 dark:text-blue-200">Full-Time</span>
+              </div>
+              <p className="text-xl text-blue-600 dark:text-blue-400 font-semibold mb-4">Emcan Solutions</p>
+              <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2">
+                <li>Developed scalable backend systems using Laravel Modular Architecture.</li>
+                <li>Contributed to large-scale production platforms used by multiple users.</li>
+                <li>Built secure APIs and handled authentication and role-based systems.</li>
+                <li>Managed deployments using cPanel and Azure.</li>
+                <li>Optimized database queries and improved system performance.</li>
+                <li>Performed maintenance and feature enhancements on live systems.</li>
+              </ul>
             </div>
 
-            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-purple-600 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
-              <h3 className="text-2xl font-bold mb-2">Laravel Full Stack Developer</h3>
-              <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold mb-2">Full-Time</p>
-              <p className="text-gray-600 dark:text-gray-300">Building and maintaining backend systems and platforms using Laravel Modular Architecture. Enhancing production systems, implementing robust deployments, and optimizing databases for performance.</p>
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-purple-600 ${isDarkMode ? 'bg-slate-800' : 'bg-slate-50'}`}>
+              <h3 className="text-2xl font-bold mb-2">Backend Developer</h3>
+              <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold mb-4">Freelance</p>
+              <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2">
+                <li>Developed CRM systems using Laravel with RESTful API architecture.</li>
+                <li>Designed authentication systems and role-based access control.</li>
+                <li>Built scalable API endpoints and handled business workflow logic.</li>
+              </ul>
             </div>
 
-            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-emerald-500 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
-              <h3 className="text-2xl font-bold mb-2">Laravel Backend Developer</h3>
-              <p className="text-xl text-emerald-500 dark:text-emerald-400 font-semibold mb-2">Part-Time</p>
-              <p className="text-gray-600 dark:text-gray-300">Creating scalable RESTful APIs, modern backend architectures, and secure authentication systems with role-based access control using the latest versions of the Laravel framework.</p>
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-emerald-500 ${isDarkMode ? 'bg-slate-800' : 'bg-slate-50'}`}>
+              <h3 className="text-2xl font-bold mb-2">Freelance Full-Stack Developer</h3>
+              <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2">
+                <li>Developed Business Workflow Automation Platform using React and Node.js.</li>
+                <li>Built backend system for short-video social platform.</li>
+                <li>Developed RESTful APIs and frontend integrations.</li>
+                <li>Deployed applications using Azure and FileZilla.</li>
+              </ul>
             </div>
 
-            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-pink-500 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
-              <h3 className="text-2xl font-bold mb-2">Freelance Full Stack Developer</h3>
-              <p className="text-xl text-pink-500 dark:text-pink-400 font-semibold mb-2">Freelance</p>
-              <p className="text-gray-600 dark:text-gray-300">Delivering end-to-end full stack solutions globally spanning React, Angular, Node.js, Express, and Laravel. Specialized in workflow automation systems, custom CRM tools, and scalable applications.</p>
+            <div className={`p-6 rounded-lg shadow-lg border-l-4 border-pink-500 ${isDarkMode ? 'bg-slate-800' : 'bg-slate-50'}`}>
+              <h3 className="text-2xl font-bold mb-4">Education</h3>
+              <div className="mb-6">
+                <p className="text-xl text-pink-500 dark:text-pink-400 font-semibold">Information Technology Institute (ITI)</p>
+                <p className="text-slate-600 dark:text-slate-300">Open Source Full-Stack Track</p>
+              </div>
+              <div>
+                <p className="text-xl text-pink-500 dark:text-pink-400 font-semibold">Assiut University</p>
+                <p className="text-slate-600 dark:text-slate-300">Bachelor of Computers and Information</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className={`py-20 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <section id="skills" className={`py-20 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Skills & Technologies</h2>
@@ -369,9 +425,9 @@ function App() {
               <div key={skill.name} className="mb-6">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-lg font-semibold">{skill.name}</span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">{skill.level}%</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">{skill.level}%</span>
                 </div>
-                <div className={`w-full ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full h-3`}>
+                <div className={`w-full ${isDarkMode ? 'bg-slate-700' : 'bg-slate-200'} rounded-full h-3`}>
                   <div
                     className="bg-gradient-to-r from-blue-600 to-purple-600 h-3 rounded-full transition-all duration-1000 ease-out"
                     style={{ width: `${skill.level}%` }}
@@ -383,7 +439,7 @@ function App() {
             <div className="md:col-span-2 mt-8">
               <h3 className="text-xl font-bold mb-4">Additional Technologies</h3>
               <div className="flex flex-wrap gap-3">
-                {['PHP', 'Laravel', 'NestJS', 'Odoo', 'PostgreSQL', 'AWS', 'Firebase', 'Linux', 'Git', 'REST APIs', 'Flutter', 'Bootstrap'].map((tech) => (
+                {['NestJS', 'PHP', 'HTML', 'CSS', 'JavaScript', 'Azure', 'AWS (Basics)', 'Firebase', 'cPanel', 'Git', 'GitHub', 'Postman', 'Linux', 'Bash', 'RESTful APIs', 'MVC', 'OOP', 'SOLID Principles'].map((tech) => (
                   <span
                     key={tech}
                     className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 text-blue-800 dark:text-blue-200 px-3 py-2 rounded-lg text-sm font-medium"
@@ -398,7 +454,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      <section id="projects" className={`py-20 ${isDarkMode ? 'bg-slate-800' : 'bg-slate-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
@@ -409,16 +465,24 @@ function App() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`${isDarkMode ? 'bg-gray-900' : 'bg-white'} rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl`}
+                className={`${isDarkMode ? 'bg-slate-900' : 'bg-white'} rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl`}
               >
                 {/* إذا كان المشروع هو Job Board Platform، اعرض كاروسيل الصور */}
-                {(project.images && Array.isArray(project.images)) ? (
+                {(project.images && Array.isArray(project.images) && project.images.length > 0) ? (
                   <Carousel images={project.images} />
-                ) : null}
+                ) : (
+                  project.icon ? (
+                    <div className={`h-48 flex items-center justify-center ${isDarkMode ? 'bg-slate-800' : 'bg-slate-100'} border-b ${isDarkMode ? 'border-slate-700' : 'border-slate-200'}`}>
+                      <div className="transform transition-transform hover:scale-110 duration-300 drop-shadow-md">
+                        {project.icon}
+                      </div>
+                    </div>
+                  ) : null
+                )}
                 
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                  <p className="text-slate-600 dark:text-slate-300 mb-4">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech) => (
@@ -440,7 +504,7 @@ function App() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200 border border-gray-300 dark:border-gray-600 rounded px-3 py-1"
+                          className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors duration-200 border border-slate-300 dark:border-slate-600 rounded px-3 py-1"
                         >
                           <Github size={16} />
                           <span>{link.label}</span>
@@ -461,7 +525,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-            <p className="text-lg mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg mt-6 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
               I'm always interested in new opportunities and exciting projects. 
               Let's discuss how we can work together!
             </p>
@@ -471,33 +535,33 @@ function App() {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <a
                href="mailto:arwaemam2002@gmail.com"
-                className={`${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} p-6 rounded-lg shadow-lg text-center transition-all duration-300 hover:scale-105`}
+                className={`${isDarkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-white hover:bg-slate-50'} p-6 rounded-lg shadow-lg text-center transition-all duration-300 hover:scale-105`}
               >
                 <Mail size={32} className="mx-auto mb-4 text-blue-600" />
                 <h3 className="text-xl font-semibold mb-2">Email</h3>
-               <p className="text-gray-600 dark:text-gray-300">arwaemam2002@gmail.com</p>
+               <p className="text-slate-600 dark:text-slate-300">arwaemam2002@gmail.com</p>
               </a>
               
               <a
                href="https://linkedin.com/in/arwa-emam"
-                className={`${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} p-6 rounded-lg shadow-lg text-center transition-all duration-300 hover:scale-105`}
+                className={`${isDarkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-white hover:bg-slate-50'} p-6 rounded-lg shadow-lg text-center transition-all duration-300 hover:scale-105`}
               >
                 <Linkedin size={32} className="mx-auto mb-4 text-blue-600" />
                 <h3 className="text-xl font-semibold mb-2">LinkedIn</h3>
-                <p className="text-gray-600 dark:text-gray-300">Connect with me</p>
+                <p className="text-slate-600 dark:text-slate-300">Connect with me</p>
               </a>
               
               <a
                href="https://github.com/ArwaEmamm"
-                className={`${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} p-6 rounded-lg shadow-lg text-center transition-all duration-300 hover:scale-105`}
+                className={`${isDarkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-white hover:bg-slate-50'} p-6 rounded-lg shadow-lg text-center transition-all duration-300 hover:scale-105`}
               >
                 <Github size={32} className="mx-auto mb-4 text-blue-600" />
                 <h3 className="text-xl font-semibold mb-2">GitHub</h3>
-                <p className="text-gray-600 dark:text-gray-300">Check out my code</p>
+                <p className="text-slate-600 dark:text-slate-300">Check out my code</p>
               </a>
             </div>
             
-            <div className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} p-8 rounded-lg shadow-xl`}>
+            <div className={`${isDarkMode ? 'bg-slate-800' : 'bg-white'} p-8 rounded-lg shadow-xl`}>
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -506,8 +570,8 @@ function App() {
                       type="text"
                       className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         isDarkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white' 
-                          : 'bg-gray-50 border-gray-300'
+                          ? 'bg-slate-700 border-slate-600 text-white' 
+                          : 'bg-slate-50 border-slate-300'
                       }`}
                       placeholder="Your Name"
                     />
@@ -518,8 +582,8 @@ function App() {
                       type="email"
                       className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         isDarkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white' 
-                          : 'bg-gray-50 border-gray-300'
+                          ? 'bg-slate-700 border-slate-600 text-white' 
+                          : 'bg-slate-50 border-slate-300'
                       }`}
                       placeholder="your@email.com"
                     />
@@ -531,8 +595,8 @@ function App() {
                     rows={6}
                     className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                       isDarkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-gray-50 border-gray-300'
+                        ? 'bg-slate-700 border-slate-600 text-white' 
+                        : 'bg-slate-50 border-slate-300'
                     }`}
                     placeholder="Tell me about your project..."
                   ></textarea>
@@ -550,9 +614,9 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className={`py-8 ${isDarkMode ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-200'} border-t`}>
+      <footer className={`py-8 ${isDarkMode ? 'bg-slate-900 border-slate-700' : 'bg-slate-50 border-slate-200'} border-t`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-slate-600 dark:text-slate-400">
             © 2025 Arwa Mostafa Emam. Built with React & Tailwind CSS.
           </p>
         </div>
