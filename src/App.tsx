@@ -58,6 +58,24 @@ function App() {
 
   const projects = [
     {
+      title: 'AmazePMS Website Redesign',
+      description: 'A premium, modern, and interactive redesign of the AmazePMS marketing website created as part of a Web Developer hiring assignment. Features include a modern SaaS UI, smooth animations with Framer Motion & GSAP, Lenis smooth scrolling, and a responsive component-based architecture.',
+      images: [
+        '/1tech.JPG',
+        '/2tech.JPG',
+        '/3tech.JPG',
+        '/4tec.JPG',
+        '/5tech.JPG',
+        '/6tech.JPG'
+      ],
+      icon: <ExternalLink size={64} className="text-indigo-500" />,
+      tech: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP', 'Lenis'],
+      codeLinks: [
+        { url: 'https://github.com/ArwaEmamm/Amaza', label: 'GitHub' },
+        { url: 'https://amaza-lc3k.vercel.app/', label: 'Live Demo' }
+      ]
+    },
+    {
       title: 'Online Courses Platform (Udemy-like System)',
       description: 'Developed backend modules for a large-scale learning platform with secure subscriptions, structured courses, dynamic quizzes, and content protection (Laravel/Backend).',
       images: [],
